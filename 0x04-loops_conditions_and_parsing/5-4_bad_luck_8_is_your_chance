@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# displays the message "bad luck" on the 4th iteration
+# displays the message "good luck" on the 8th iteration
+# displays the message "Best School" on the other iterations
+
+counts=0
+
+while [ $counts -lt 10 ]
+do
+  if [ $counts -eq 4 ]
+  then
+    echo "bad luck"
+  if [ $counts -eq 8 ]
+  then
+    echo "good luck"
+  fi
+  echo "Best School"
+  (( counts++ ))
+done
