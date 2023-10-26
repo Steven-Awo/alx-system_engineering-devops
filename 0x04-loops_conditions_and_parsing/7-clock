@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Displays the time from the 12 horus and 59 minutes.
+# Displays the hours that reads from 0 to 12
+# Displays  the minutes that reads from 1 to 59
+
+hourss=0
+
+while [ $hourss -le 12 ]
+do
+  echo "Hour: $hourss"
+  minte=1
+  while [ $minte -le 59 ]
+  do
+    echo "$minte"
+    (( minte++ ))
+  done
+  (( hourss++ ))
+done
