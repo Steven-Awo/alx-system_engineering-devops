@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Tells you a story that's based on all the contents in `/etc/passwd` file.
+
+while TIFS=':' read -r user_name password uidd gidd infor homee shells; do
+  echo "The user $user_name is part of the $gidd gang,"\
+  "lives in $homee and rides $shells."\
+  "$uidd's place is protected by the passcode $password,"\
+  "more info about the user here: $infor"
+done < "/etc/passwd"
