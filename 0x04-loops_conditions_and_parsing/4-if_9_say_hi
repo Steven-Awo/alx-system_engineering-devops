@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Displays the "Best School" 10 times by using the while loop.
+# When the iteration is on the 9th, displays the message "Hi"
+# before the "Best School".
+
+counts=0
+
+while [ $counts -lt 10 ]
+do
+  if [ $counts -eq 9 ]
+  then
+    echo "Hi"
+  fi
+  echo "Best School"
+  (( counts++ ))
+done
