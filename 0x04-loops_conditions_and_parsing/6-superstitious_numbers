@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# displays the message "bad luck from China" on the 4th iteration
+# displays the message "bad luck from Japan" on the 8th iteration
+# displays the message "bad luck from Italy" on the 8th iteration
+# displays the iteration numbers
+
+counts=1
+
+while [ $counts -lt 21 ]
+do
+	if [ $counts -eq 4 ]
+	then
+		echo "bad luck from China"
+	fi
+	if [ $counts -eq 9 ]
+	then
+		echo "bad luck from Japan"
+	fi
+	if [ $counts -eq 17 ]
+	then
+		echo "bad luck from Italy"
+	fi
+	echo "$counts"
+	(( counts++ ))
+done
