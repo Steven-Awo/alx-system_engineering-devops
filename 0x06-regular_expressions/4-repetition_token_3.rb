@@ -1,2 +1,3 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/hbt*n/).join("\n")
+soln = ARGV[0].scan(/hbt*n/).join("\n")
+puts soln
