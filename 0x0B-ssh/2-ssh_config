@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Share your SSH client configuration in your answer file.
+# Share your SSH client configuration in your answer file.
 
 Host *
 	PasswordAuthentication no
