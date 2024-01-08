@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# web server 427691-web-01 login
+# lb server 427691-web-01 login
 
 eval $("ssh-agent")
 
