@@ -1,4 +1,4 @@
-
+#!/usr/bin/env puppet
 # Installing tthe Nginx's package
 package { 'nginx':
   ensure => installed,
