@@ -41,11 +41,14 @@ frontend rotimi_frontend
         default_backend rotimi_backend
 
 frontend rotimi_frontend https
-        bind *:443 ssl crt /etc/haproxy/certs/.dark9iter.tech.pem
-	http-request set-header X-Forwarded-Proto https
-	default_backend rotimi_backend
+        bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.tech/fullchain.pem
+        mode http
+        http-request set-header X-Forwarded-Proto https
+        default_backend rotimi_backend
 
 backend rotimi_backend
+        mode http
         balance roundrobin
+        option forwardfor
         server 427691-web-01 52.91.137.7:80 check
         server 427691-web-02 100.25.33.74:80 check
