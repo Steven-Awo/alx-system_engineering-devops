@@ -47,9 +47,5 @@ frontend rotimi_frontend https
 
 backend rotimi_backend
         balance roundrobin
-	redirect scheme https if !{ ssl_fc }
         server 427691-web-01 52.91.137.7:80 check
         server 427691-web-02 100.25.33.74:80 check
-
-backend letsencrypt-backend
-	server letsencrypt 127.0.0.1:54321
