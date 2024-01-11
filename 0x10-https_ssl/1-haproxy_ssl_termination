@@ -40,7 +40,7 @@ frontend rotimi_frontend
 	http-request set-header X-Forwarded-Proto https
         default_backend rotimi_backend
 
-frontend rotimi_frontend https
+frontend rotimi_frontend_https
         bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.tech/fullchain.pem
         mode http
         http-request set-header X-Forwarded-Proto https
