@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # forcefully remove all the file(s) if they exists
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
 sudo service nginx restart
