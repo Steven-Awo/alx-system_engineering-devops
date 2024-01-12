@@ -3,11 +3,6 @@
 # forcefully remove all the file(s) if they exists
 
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
 sudo service nginx restart
-
-sudo nginx -t
-
 rm /run/nginx.pid
-
 sudo nginx -t
