@@ -41,7 +41,8 @@ frontend rotimi_frontend
 	default_backend rotimi_backend
 
 frontend rotimi_frontend_https
-	bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.tech.pem
+	bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.teck/fullchain.pem
+	mode http
 	http-request set-header X-Forwarded-Proto https
 	default_backend rotimi_backend
 
