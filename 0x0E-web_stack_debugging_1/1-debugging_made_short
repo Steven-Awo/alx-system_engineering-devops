@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# Just the same as in task 0 but by adding -f to the ln to just
-# forcefully remove all the file(s) if they exists
-
+# Just the same as in task 0 but by adding -f to the ln to just forcefully remove all the file(s) if they exists
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
-rm /run/nginx.pid
 sudo nginx -t
+rm /run/nginx.pid
+sudo service nginx restart
