@@ -34,21 +34,18 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 frontend rotimi_frontend
-        bind *:80
+	bind *:80
 	mode http
 	http-request redirect scheme https code 301 unless { ssl_fc }
 	http-request set-header X-Forwarded-Proto https
-        default_backend rotimi_backend
+	default_backend rotimi_backend
 
 frontend rotimi_frontend_https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.tech/fullchain.pem
-        mode http
-        http-request set-header X-Forwarded-Proto https
-        default_backend rotimi_backend
+	bind *:443 ssl crt /etc/letsencrypt/live/www.dark9iter.tech/fullchain.pem
+	http-request set-header X-Forwarded-Proto https
+	default_backend rotimi_backend
 
 backend rotimi_backend
-        mode http
-        balance roundrobin
-        option forwardfor
-        server 427691-web-01 52.91.137.7:80 check
-        server 427691-web-02 100.25.33.74:80 check
+	balance roundrobin
+	server 427691-web-01 52.91.137.7:80 check
+	server 427691-web-02 100.25.33.74:80 check
