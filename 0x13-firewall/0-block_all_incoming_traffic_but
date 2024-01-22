@@ -1,6 +1,6 @@
 #!/usr/bin/ env bash
 # The configuration of a ufw firewall to block all the incoming traffic
-# But only allowing tcp ports 22, 80 and 443
+# but only allowing tcp ports 22, 80 and 443
 
 sudo apt install ufw
 
@@ -13,8 +13,6 @@ sudo ufw allow 22/tcp
 sudo ufw allow 443/tcp
 
 sudo ufw allow 80/tcp
-
-sudo ufw status verbose
 
 sudo ufw enable
 
