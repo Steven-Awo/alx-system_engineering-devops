@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Creating and then running the whoami command as for a specified user
+
+sudo -u "$1" whoami
