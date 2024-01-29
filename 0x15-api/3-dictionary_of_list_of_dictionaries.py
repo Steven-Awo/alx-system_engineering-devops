@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A python scrip that uses what you did in the task #0,
+A python script that uses what you did in the task #0,
 extend your Python script to export data in the JSON format.
 """
 
