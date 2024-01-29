@@ -23,7 +23,7 @@ if __name__ == "__main__":
     name_of_emplye = sessionReq.get(name_of_URL)
 
     json_requts = emplye.json()
-    usr_name = name_of_emplye.json()['name']
+    usr_name = name_of_emplye.json()['username']
 
     total_numb_of_tasks = 0
 
