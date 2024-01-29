@@ -26,13 +26,10 @@ if __name__ == "__main__":
     usr_name = name_of_emplye.json()['username']
 
     total_numb_of_tasks = 0
-
     for tasks_that_has_been_done in json_requts:
         if tasks_that_has_been_done['completed']:
             total_numb_of_tasks += 1
-
     filee_CSV = Emplye_id + '.csv'
-
     with open(filee_CSV, "w", newline='') as csvfile:
         write = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         for x in json_requts:
