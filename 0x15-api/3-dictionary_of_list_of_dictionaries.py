@@ -21,15 +21,14 @@ if __name__ == "__main__":
     toddo_all = {}
 
     for user in userss:
-        usrr = user
         the_List_of_task = []
         for taskk in toddos:
-            if taskk.get('userId') == usrr.get('id'):
-                the_task_Dict = {"username": usrr.get('username'),
+            if taskk.get('userId') == user.get('id'):
+                the_task_Dict = {"username": user.get('username'),
                             "task": taskk.get('title'),
                             "completed": taskk.get('completed')}
                 the_List_of_task.append(the_task_Dict)
-        toddo_all[usrr.get('id')] = the_List_of_task
+        toddo_all[user.get('id')] = the_List_of_task
 
     with open('todo_all_employees.json', mode='w') as f:
         json.dump(toddo_all, f)
