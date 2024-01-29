@@ -21,7 +21,7 @@ if __name__ == "__main__":
     name_of_emplye = sessionReq.get(name_of_URL)
 
     json_requts = emplye.json()
-    name = name_of_emplye.json()['name']
+    usr_name = name_of_emplye.json()['name']
 
     total_numb_of_tasks = 0
     tasks_donne = []
@@ -31,7 +31,7 @@ if __name__ == "__main__":
             total_numb_of_tasks += 1
 
     print("Employee {} is done with tasks({}/{}):".
-          format(name, total_numb_of_tasks, len(json_requts)))
+          format(usr_name, total_numb_of_tasks, len(json_requts)))
 
     for tasks_that_has_been_done in json_requts:
         if tasks_that_has_been_done['completed']:
