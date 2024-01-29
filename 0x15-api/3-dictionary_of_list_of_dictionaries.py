@@ -21,7 +21,7 @@ if __name__ == "__main__":
     toddo_all = {}
 
     for user in userss:
-        user_id = user.get('id')
+        user_id = str(user.get('id'))
         user_username = user.get('username')
         the_List_of_task = []
         for taskk in toddos:
