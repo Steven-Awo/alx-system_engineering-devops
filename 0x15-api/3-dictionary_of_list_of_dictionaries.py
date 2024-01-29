@@ -14,9 +14,9 @@ if __name__ == "__main__":
 
     import requests
 
-    usersse = requests.get("https://jsonplaceholder.typicode.com/usersse")
+    usersse = requests.get("https://jsonplaceholder.typicode.com/users")
     usersse = usersse.json()
-    toddos = requests.get('https://jsonplaceholder.typicode.com/toddos')
+    toddos = requests.get('https://jsonplaceholder.typicode.com/todos')
     toddos = toddos.json()
     toddo_all = {}
 
