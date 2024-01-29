@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A python script that uses what you did in the task #0,
-extend your Python script to export data in the JSON format.
+Using what you did in the task #0, extend your
+Python script to export data in the JSON format.
 """
 
 import json
@@ -14,15 +14,15 @@ if __name__ == "__main__":
 
     import requests
 
-    users = requests.get("https://jsonplaceholder.typicode.com/users")
-    users = users.json()
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = todos.json()
+    userss = requests.get("https://jsonplaceholder.typicode.com/users")
+    userss = users.json()
+    toddos = requests.get('https://jsonplaceholder.typicode.com/todos')
+    toddos = toddos.json()
     toddo_all = {}
 
-    for usrr in users:
+    for usrr in userss:
         the_List_of_task = []
-        for taskk in todos:
+        for taskk in toddos:
             if taskk.get('userId') == usrr.get('id'):
                 the_task_Dict = {"username": usrr.get('username'),
                             "taskk": taskk.get('title'),
