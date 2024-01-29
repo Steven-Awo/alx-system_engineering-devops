@@ -24,9 +24,10 @@ if __name__ == "__main__":
     name = name_of_emplye.json()['name']
 
     total_numb_of_tasks = 0
-
+    tasks_donne = []
     for tasks_that_has_been_done in json_requts:
         if tasks_that_has_been_done['completed']:
+            tasks_donne.append(total_numb_of_tasks)
             total_numb_of_tasks += 1
 
     print("Employee {} is done with tasks({}/{}):".
