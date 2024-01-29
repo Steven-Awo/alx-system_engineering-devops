@@ -20,7 +20,8 @@ if __name__ == "__main__":
     toddos = toddos.json()
     toddo_all = {}
 
-    for usrr in userss:
+    for user in userss:
+        usrr = user
         the_List_of_task = []
         for taskk in toddos:
             if taskk.get('userId') == usrr.get('id'):
