@@ -1,40 +1,27 @@
-#!/usr_name/bin/python3
+#!/usr/bin/python3
 """
-Using what you did in the task #0, extend your Python
-script to export data in the CSV format.
+Using what you did in the task #0, extend your
+Python script to export data in the CSV format.
 """
-
-import json
-
-import csv
 
 import requests
+import sys
 
-from sys import argv
 
+if __name__ == '__main__':
+    emplooy_Id = sys.argv[1]
+    Url_id = "https://jsonplaceholder.typicode.com/users"
+    url_name = Url_id + "/" + emplooy_Id
 
-if __name__ == "__main__":
+    respns = requests.get(url_name)
+    usr_name = respns.json().get('usr_name')
 
-    sessionReq = requests.Session()
+    todos_Url = url_name + "/todos"
+    respns = requests.get(todos_Url)
+    tasks_to_do = respns.json()
 
-    Emplye_id = argv[1]
-    URL_id  = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(Emplye_id)
-    name_of_URL = 'https://jsonplaceholder.typicode.com/users/{}'.format(Emplye_id)
-    emplye = sessionReq.get(URL_id)
-    name_of_emplye = sessionReq.get(name_of_URL)
-
-    json_requts = emplye.json()
-    usr_name = name_of_emplye.json()['username']
-
-    total_numb_of_tasks = 0
-
-    for done_tasks in json_requts:
-        if done_tasks['completed']:
-            total_numb_of_tasks += 1
-
-    file_CSV = Emplye_id + '.csv'
-
-    with open(file_CSV, "w", newline='') as csv_file:
-        write = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_ALL)
-        for x in json_requts:
-            write.writerow([Emplye_id, usr_name, x.get('completed'), x.get('title')])
+    with open('{}.csv'.format(emplooy_Id), 'w') as file:
+        for task_did in tasks_to_do:
+            file.write('"{}","{}","{}","{}"\n'
+                       .format(emplooy_Id, usr_name, task_did.get('completed'),
+                               task_did.get('title')))
