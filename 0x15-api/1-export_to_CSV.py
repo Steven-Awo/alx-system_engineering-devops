@@ -1,27 +1,46 @@
 #!/usr/bin/python3
 """
-Using what you did in the task #0, extend your
-Python script to export data in the CSV format.
+Write a Python script that, using this REST API, for a
+given employee ID, returns information about
+his/her TODO list progress.
 """
 
 import requests
-import sys
 
+import csv
 
-if __name__ == '__main__':
-    emplooy_Id = sys.argv[1]
-    Url_id = "https://jsonplaceholder.typicode.com/users"
-    url_name = Url_id + "/" + emplooy_Id
+from sys import argv
 
-    respns = requests.get(url_name)
-    usr_name = respns.json().get('usr_name')
+if __name__ == "__main__":
 
-    todos_Url = url_name + "/todos"
-    respns = requests.get(todos_Url)
-    tasks_to_do = respns.json()
+    sessionReq = requests.Session()
 
-    with open('{}.csv'.format(emplooy_Id), 'w') as file:
-        for task_did in tasks_to_do:
-            file.write('"{}","{}","{}","{}"\n'
-                       .format(emplooy_Id, usr_name, task_did.get('completed'),
-                               task_did.get('title')))
+    Emplye_id = argv[1]
+    URL_id = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(Emplye_id)
+    name_of_URL = 'https://jsonplaceholder.typicode.com/users/{}'.format(Emplye_id)
+
+    emplye = sessionReq.get(URL_id)
+    name_of_emplye = sessionReq.get(name_of_URL)
+
+    json_requts = emplye.json()
+    usr_name = name_of_emplye.json()['name']
+
+    total_numb_of_tasks = 0
+
+    for tasks_that_has_been_done in json_requts:
+        if tasks_that_has_been_done['completed']:
+            total_numb_of_tasks += 1
+
+    filee_CSV = Emplye_id + '.csv'
+
+    with open(filee_CSV, "w", newline='') as csvfile:
+        write = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+        for x in json_requts:
+            write.writerow([Emplye_id, usr_name, x.get('completed'), x.get('title')])
+
+    # print("Employee {} is done with tasks({}/{}):".
+    #       format(name, total_numb_of_tasks, len(json_requts)))
+
+    # for tasks_that_has_been_done in json_requts:
+    #     if tasks_that_has_been_done['completed']:
+    #         print("\t " + tasks_that_has_been_done.get('title'))
