@@ -5,9 +5,9 @@ given employee ID, returns information about
 his/her TODO list progress.
 """
 
-import requests
-
 import csv
+
+import requests
 
 from sys import argv
 
@@ -37,10 +37,3 @@ if __name__ == "__main__":
         write = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
         for x in json_requts:
             write.writerow([Emplye_id, usr_name, x.get('completed'), x.get('title')])
-
-    # print("Employee {} is done with tasks({}/{}):".
-    #       format(name, total_numb_of_tasks, len(json_requts)))
-
-    # for tasks_that_has_been_done in json_requts:
-    #     if tasks_that_has_been_done['completed']:
-    #         print("\t " + tasks_that_has_been_done.get('title'))
