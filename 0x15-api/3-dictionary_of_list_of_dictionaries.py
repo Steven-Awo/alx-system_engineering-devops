@@ -21,12 +21,12 @@ if __name__ == "__main__":
     toddo_all = {}
 
     for user in userss:
-        user_id = str(user.get('id'))
+        user_id = user.get('id')
         user_username = user.get('username')
         the_List_of_task = []
         for taskk in toddos:
             if taskk.get('userId') == user_id:
-                the_task_Dict = {"username":  user_username,
+                the_task_Dict = {"username": user_username,
                             "task": taskk.get('title'),
                             "completed": taskk.get('completed')}
                 the_List_of_task.append(the_task_Dict)
