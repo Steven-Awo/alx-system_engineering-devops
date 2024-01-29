@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
     import requests
 
-    userss = requests.get("https://jsonplaceholder.typicode.com/users")
-    userss = userss.json()
-    toddos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    toddos = toddos.json()
+    userrss = requests.get("https://jsonplaceholder.typicode.com/users")
+    userss = userrss.json()
+    toddoss = requests.get('https://jsonplaceholder.typicode.com/todos')
+    toddos = toddoss.json()
     toddo_all = {}
 
     for user in userss:
