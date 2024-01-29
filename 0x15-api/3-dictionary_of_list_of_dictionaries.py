@@ -14,15 +14,15 @@ if __name__ == "__main__":
 
     import requests
 
-    usersse = requests.get("https://jsonplaceholder.typicode.com/users")
-    usersse = usersse.json()
-    toddos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    toddos = toddos.json()
+    users = requests.get("https://jsonplaceholder.typicode.com/users")
+    users = users.json()
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
+    todos = todos.json()
     toddo_all = {}
 
-    for usrr in usersse:
+    for usrr in users:
         the_List_of_task = []
-        for taskk in toddos:
+        for taskk in todos:
             if taskk.get('userId') == usrr.get('id'):
                 the_task_Dict = {"username": usrr.get('username'),
                             "taskk": taskk.get('title'),
