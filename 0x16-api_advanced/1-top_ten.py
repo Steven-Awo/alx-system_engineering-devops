@@ -8,16 +8,16 @@ def top_ten(subreddit):
     """Prints out the titles thats of the 10 most hottest
     posts on the a given subreddit."""
     urll = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    headers = {
+    headders = {
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
-    params = {
+    parrams = {
         "limit": 10
     }
-    respse = requests.get(urll, headers=headers, params=params,
+    response = requests.get(urll, headders=headders, parrams=parrams,
                             allow_redirects=False)
-    if respse.status_code == 404:
+    if response.status_code == 404:
         print("None")
         return
-    resullts = respse.json().get("data")
-    [print(c.get("data").get("title")) for c in resullts.get("children")]
+    results = response.json().get("data")
+    [print(c.get("data").get("title")) for c in results.get("children")]
