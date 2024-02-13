@@ -6,7 +6,7 @@ import requests
 after = None
 
 
-def recurse(subreddit, hottest_list=[]):
+def recurse(subreddit, hot_list=[]):
     """returning top ten post titles recursively"""
     global after
     userr_agentt = {'User-Agent': 'api_advanced-project'}
@@ -19,10 +19,10 @@ def recurse(subreddit, hottest_list=[]):
         aftter_data = resultts.json().get("data").get("after")
         if aftter_data is not None:
             after = aftter_data
-            recurse(subreddit, hottest_list)
+            recurse(subreddit, hot_list)
         all_the_titles = resultts.json().get("data").get("children")
         for tittle_r in all_the_titles:
-            hottest_list.append(tittle_r.get("data").get("title"))
-        return hottest_list
+            hot_list.append(tittle_r.get("data").get("title"))
+        return hot_list
     else:
         return (None)
