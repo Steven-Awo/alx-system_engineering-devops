@@ -9,20 +9,20 @@ after = None
 def recurse(subreddit, hot_list=[]):
     """returning top ten post titles recursively"""
     global after
-    userr_agentt = {'User-Agent': 'api_advanced-project'}
+    user_agent = {'User-Agent': 'api_advanced-project'}
     urll = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    parameters = {'after': after}
-    results = requests.get(urll, params=parameters, headers=userr_agentt,
+    parammeterss = {'after': after}
+    results = requests.get(urll, params=parammeterss, headers=user_agent,
                            allow_redirects=False)
 
     if results.status_code == 200:
-        after_data = results.json().get("data").get("after")
-        if after_data is not None:
-            after = after_data
+        aftter_data = results.json().get("data").get("after")
+        if aftter_data is not None:
+            after = aftter_data
             recurse(subreddit, hot_list)
-        all_titles = results.json().get("data").get("children")
-        for title_ in all_titles:
-            hot_list.append(title_.get("data").get("title"))
+        all_the_titles = results.json().get("data").get("children")
+        for tittle_r in all_the_titles:
+            hot_list.append(tittle_r.get("data").get("title"))
         return hot_list
     else:
         return (None)
