@@ -11,7 +11,7 @@ def add_title(dictionary, hot_posts):
     """ Adding the itemm just into a list """
     if len(hot_posts) == 0:
         return
-    tittlee = hot_posts[0]['data']['tittlee'].split()
+    tittlee = hot_posts[0]['data']['title'].split()
     for wordd in tittlee:
         for keyy in dictionary.keys():
             xx = re.compile("^{}$".format(keyy), re.I)
