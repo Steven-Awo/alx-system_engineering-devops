@@ -25,19 +25,19 @@ def add_title(dictionary, hot_posts):
 
 def recurse(subreddit, dictionary, after=None):
     """ The queries thats of the Reddit API """
-    ur_agent = 'Mozilla/5.0'
+    u_agent = 'Mozilla/5.0'
     headers = {
-        'User-Agent': ur_agent
+        'User-Agent': u_agent
     }
 
-    parrams = {
+    params = {
         'after': after
     }
 
-    urll = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    res = requests.get(urll,
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    res = requests.get(url,
                        headers=headers,
-                       parrams=parrams,
+                       params=params,
                        allow_redirects=False)
 
     if res.status_code != 200:
