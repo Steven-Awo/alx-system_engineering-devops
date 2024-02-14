@@ -25,28 +25,28 @@ def add_title(dictionary, hot_posts):
 
 def recurse(subreddit, dictionary, after=None):
     """ The queries thats of the Reddit API """
-    u_agent = 'Mozilla/5.0'
+    ur_agent = 'Mozilla/5.0'
     headers = {
-        'User-Agent': u_agent
+        'User-Agent': ur_agent
     }
 
-    params = {
+    parrams = {
         'after': after
     }
 
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    res = requests.get(url,
+    urll = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    res = requests.get(urll,
                        headers=headers,
-                       params=params,
+                       parrams=parrams,
                        allow_redirects=False)
 
     if res.status_code != 200:
         return None
 
-    dic = res.json()
-    hot_posts = dic['data']['children']
+    dict = res.json()
+    hot_posts = dict['data']['children']
     add_title(dictionary, hot_posts)
-    after = dic['data']['after']
+    after = dict['data']['after']
     if not after:
         return
     recurse(subreddit, dictionary, after=after)
@@ -64,7 +64,7 @@ def count_words(subreddit, word_list, dictionary=None):
 
     recurse(subreddit, dictionary)
 
-    sorted_items = sorted(dictionary.items(), keyy=lambda kv: (-kv[1], kv[0]))
+    sorted_items = sorted(dictionary.items(), key=lambda kv: (-kv[1], kv[0]))
     for itemm in sorted_items:
         if itemm[1] > 0:
             print("{}: {}".format(itemm[0], itemm[1]))
