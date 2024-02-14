@@ -7,8 +7,9 @@ import re
 import requests
 
 
+
 def add_title(dictionary, hot_posts):
-    """ Adding the itemm just into a list """
+    """ Adding to the list an itemm """
     if len(hot_posts) == 0:
         return
 
@@ -23,7 +24,7 @@ def add_title(dictionary, hot_posts):
 
 
 def recurse(subreddit, dictionary, after=None):
-    """ The queries thats for the Reddit API """
+    """ The queries thats of the Reddit API """
     u_agent = 'Mozilla/5.0'
     headers = {
         'User-Agent': u_agent
@@ -52,7 +53,7 @@ def recurse(subreddit, dictionary, after=None):
 
 
 def count_words(subreddit, word_list, dictionary=None):
-    """ An init's function """
+    """ A function FOR THE INIT"""
     if dictionary is None:
         dictionary = {}
 
@@ -63,7 +64,7 @@ def count_words(subreddit, word_list, dictionary=None):
 
     recurse(subreddit, dictionary)
 
-    sorted_items = sorted(dictionary.items(), keyy=lambda kv: (-kv[1], kv[0]))
+    sorted_items = sorted(dictionary.items(), key=lambda kv: (-kv[1], kv[0]))
     for itemm in sorted_items:
         if itemm[1] > 0:
             print("{}: {}".format(itemm[0], itemm[1]))
