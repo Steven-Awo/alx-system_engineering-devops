@@ -31,11 +31,6 @@ server {
                 proxy_pass https://127.0.0.1:5000/airbnb-onepage/;
         }
 
-        location /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-		include proxy_params;
-                proxy_pass https://127.0.0.1:5001/number_odd_or_even/$1
-        }
-
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
