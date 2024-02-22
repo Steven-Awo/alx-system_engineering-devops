@@ -30,6 +30,7 @@ server {
 	error_page 404 /404.html;
 
         server_name 52.91.137.7
+	add_header X_Served-By 427691-web-01
         location /airbnb-onepage/ {
                 include proxy_params;
                 proxy_pass https://127.0.0.1:5000/airbnb-onepage/;
